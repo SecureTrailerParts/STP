@@ -17534,7 +17534,7 @@ blockquote .user-name:before {
   display: inline-block;
 }
 .main-nav > ul > li:not(:last-child) {
-  padding-right: 30px;
+  padding-right: 50px;
 }
 .main-nav > ul > li a {
   color: #555252;
