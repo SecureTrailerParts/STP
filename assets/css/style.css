@@ -17574,7 +17574,9 @@ blockquote .user-name:before {
   -webkit-transform: perspective(600px) rotateX(0deg);
           transform: perspective(600px) rotateX(0deg);
 }
-
+.main-menu.d-none.d-lg-block {
+  margin-left: auto;
+}
 /* ---Drop Menu--- */
 .drop-holder {
   position: relative;
