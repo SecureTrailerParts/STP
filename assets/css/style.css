@@ -17873,10 +17873,11 @@ blockquote .user-name:before {
   }
 }
 .slide-style-2 .slide-content .short-desc {
+  background-color: rgba(255, 255, 255, 0.6);
   text-transform: capitalize;
-  font-size: 30px;
+  font-size: 22px;
   line-height: 28px;
-  font-weight: 300;
+  font-weight: 400;
 }
 @media (max-width: 479px) {
   .slide-style-2 .slide-content .short-desc {
@@ -19033,7 +19034,7 @@ blockquote .user-name:before {
 .product-item-wrap {
   height: 100%;
 }
-.product-item:hover .product-content .price-box {
+/* .product-item:hover .product-content .price-box {
   visibility: hidden;
   opacity: 0;
 }
@@ -19041,7 +19042,7 @@ blockquote .user-name:before {
   bottom: -15px;
   opacity: 1;
   visibility: visible;
-}
+} */
 .product-img {
   height: 100%;
 }
