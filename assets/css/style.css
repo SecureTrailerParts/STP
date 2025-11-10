@@ -17143,6 +17143,7 @@ img {
 }
 .img-hover-effect {
   position: relative;
+  border:1px #EDEDED solid;
 }
 .img-hover-effect:before {
   background: rgba(255, 255, 255, 0.41);
