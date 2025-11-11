@@ -43,18 +43,14 @@ function saveSettingsToStorage() {
 
     // 在实际应用中，这里会调用相应的启用/禁用函数
     if (currentSettings.analytics) {
-        console.log('启用分析Cookie');
         // enableAnalytics();
     } else {
-        console.log('禁用分析Cookie');
         // disableAnalytics();
     }
 
     if (currentSettings.marketing) {
-        console.log('启用营销Cookie');
         // enableMarketing();
     } else {
-        console.log('禁用营销Cookie');
         // disableMarketing();
     }
 }
