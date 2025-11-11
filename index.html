@@ -33,8 +33,10 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <!-- <link rel="stylesheet" href="assets/css/style.min.css"> -->
-
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 </head>
 
 <body>
@@ -985,6 +987,68 @@
         <!-- Scroll To Top End Here -->
 
     </div>
+    <!-- 指纹图标 -->
+    <button class="privacy-trigger" id="privacyTrigger">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M12,2C9.38,2 7.25,4.13 7.25,6.75C7.25,9.32 9.26,11.4 11.88,11.49C11.96,11.48 12.04,11.48 12.12,11.49C12.18,11.49 12.24,11.5 12.3,11.5C12.36,11.5 12.42,11.49 12.48,11.49C15.09,11.4 17.1,9.32 17.1,6.75C17.1,4.13 14.97,2 12,2M6,16C3.79,16 2,17.79 2,20V22H22V20C22,17.79 20.21,16 18,16C18,14.67 17.33,13.6 16.5,12.95C15.07,14.1 13.13,14.85 11,14.85C8.87,14.85 6.93,14.1 5.5,12.95C4.67,13.6 4,14.67 4,16H6Z" />
+        </svg>
+    </button>
+
+    <!-- 隐私设置面板 -->
+    <div class="privacy-panel" id="privacyPanel">
+        <div class="panel-header">
+            <h2>Cookie Settings</h2>
+            <button class="close-cookie-btn" id="closePanel">&times;</button>
+        </div>
+
+        <div class="cookie-setting necessary">
+            <div class="setting-header">
+                <h3>Necessary Cookies</h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked disabled>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <p class="setting-description">
+                These cookies are essential for the basic functionality of the website and cannot be disabled. They are
+                usually set only in response to your actions.
+            </p>
+        </div>
+
+        <div class="cookie-setting analytics">
+            <div class="setting-header">
+                <h3>Analytics Cookies</h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="analyticsToggle">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <p class="setting-description">
+                Allow us to count visits and understand how users interact with the website, helping us improve the user
+                experience.
+            </p>
+        </div>
+
+        <div class="cookie-setting marketing">
+            <div class="setting-header">
+                <h3>Marketing Cookies</h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="marketingToggle">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <p class="setting-description">
+                Used to track visitors across websites to display relevant and engaging advertisements.
+            </p>
+        </div>
+
+        <div class="panel-actions">
+            <button class="cookie-btn cookie-btn-accept" id="acceptAll">Accept All</button>
+            <button class="cookie-btn cookie-btn-reject" id="rejectAll">Reject All</button>
+            <button class="cookie-btn cookie-btn-save" id="saveSettings">Save Settings</button>
+        </div>
+    </div>
 
     <!-- Global Vendor, plugins JS -->
 
@@ -1016,7 +1080,8 @@
     <!--Main JS (Common Activation Codes)-->
     <script src="assets/js/main.js"></script>
     <!-- <script src="assets/js/main.min.js"></script> -->
-
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 
 </html>

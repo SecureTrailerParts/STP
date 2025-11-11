@@ -1,0 +1,249 @@
+/* 指纹图标样式 */
+.privacy-trigger {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: none;
+    color: white;
+  }
+  
+  .privacy-trigger:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+  }
+  
+  .privacy-trigger svg {
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  }
+  
+  /* 隐私设置面板 */
+  .privacy-panel {
+    position: fixed;
+    left: 20px;
+    bottom: 75px;
+    width: 500px;
+    max-width: 90vw;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    padding: 2rem;
+    z-index: 999;
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .privacy-panel.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f1f3f4;
+  }
+  
+  .panel-header h2 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+  }
+  
+  .close-cookie-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #7f8c8d;
+    transition: color 0.3s ease;
+  }
+  
+  .close-cookie-btn:hover {
+    color: #e74c3c;
+  }
+  
+  /* Cookie设置项 */
+  .cookie-setting {
+    margin-bottom: 1.5rem;
+    padding: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #3498db;
+  }
+  
+  .cookie-setting.necessary {
+    border-left-color: #e74c3c;
+  }
+  
+  .cookie-setting.analytics {
+    border-left-color: #2ecc71;
+  }
+  
+  .cookie-setting.marketing {
+    border-left-color: #f39c12;
+  }
+  
+  .setting-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .setting-header h3 {
+    color: #2c3e50;
+    font-size: 1.1rem;
+  }
+  
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+  
+  .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+  }
+  
+  .toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .toggle-slider {
+    background-color: #2196F3;
+  }
+  
+  input:checked + .toggle-slider:before {
+    transform: translateX(26px);
+  }
+  
+  input:disabled + .toggle-slider {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+  
+  .setting-description {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  /* 操作按钮 */
+  .panel-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .cookie-btn {
+    flex: 1;
+    padding: 0.8rem 0.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .cookie-btn-accept {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+  }
+  
+  .cookie-btn-accept:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+  }
+  
+  .cookie-btn-reject {
+    background: #e74c3c;
+    color: white;
+  }
+  
+  .cookie-btn-reject:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+  }
+  
+  .cookie-btn-save {
+    background: #3498db;
+    color: white;
+  }
+  
+  .cookie-btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+  }
+  
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    .privacy-panel {
+        width: 350px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+    }
+    
+    .privacy-panel.active {
+        transform: translateX(-50%) translateY(0);
+    }
+    
+    .content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .panel-actions {
+        flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .privacy-panel {
+        width: 90vw;
+        padding: 1.5rem;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+  }
