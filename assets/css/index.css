@@ -16,117 +16,129 @@
     z-index: 1000;
     border: none;
     color: white;
-  }
-  
-  .privacy-trigger:hover {
+}
+
+.privacy-trigger:hover {
     transform: scale(1.1);
     box-shadow: 0 12px 35px rgba(0,0,0,0.4);
-  }
-  
-  .privacy-trigger svg {
+}
+
+.privacy-trigger svg {
     width: 30px;
     height: 30px;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-  }
-  
-  /* 隐私设置面板 */
-  .privacy-panel {
+}
+
+/* 隐私设置面板 - 核心优化：使用max-width和自动边距确保在小屏幕居中且不溢出 */
+.privacy-panel {
     position: fixed;
-    left: 20px;
-    bottom: 75px;
-    width: 500px;
-    max-width: 90vw;
+    left: 50%; /* 水平居中基准点 */
+    bottom: 80px;
+    transform: translateX(-50%) translateY(20px); /* 水平居中并初始隐藏 */
+    width: 90%; /* 默认占屏幕宽度90% */
+    max-width: 500px; /* 最大宽度限制 */
     background: white;
     border-radius: 15px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    padding: 2rem;
+    padding: 1.5rem; /* 减小内边距适配小屏幕 */
     z-index: 999;
-    transform: translateY(20px);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-  }
-  
-  .privacy-panel.active {
-    transform: translateY(0);
+    box-sizing: border-box; /* 确保padding不增加总宽度 */
+}
+
+.privacy-panel.active {
+    transform: translateX(-50%) translateY(0); /* 激活时显示在居中位置 */
     opacity: 1;
     visibility: visible;
-  }
-  
-  .panel-header {
+}
+
+.panel-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
     border-bottom: 2px solid #f1f3f4;
-  }
-  
-  .panel-header h2 {
+}
+
+.panel-header h2 {
     color: #2c3e50;
-    font-size: 1.5rem;
-  }
-  
-  .close-cookie-btn {
-    background: none;
+    font-size: 1.3rem; /* 减小标题字体 */
+    margin: 0;
+}
+
+/* 优化关闭按钮点击区域 */
+.close-cookie-btn {
+    background: transparent;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
     color: #7f8c8d;
-    transition: color 0.3s ease;
-  }
-  
-  .close-cookie-btn:hover {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-cookie-btn:hover {
     color: #e74c3c;
-  }
-  
-  /* Cookie设置项 */
-  .cookie-setting {
-    margin-bottom: 1.5rem;
-    padding: 0.8rem;
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* Cookie设置项 - 减小间距 */
+.cookie-setting {
+    margin-bottom: 1.2rem;
+    padding: 0.7rem;
     background: #f8f9fa;
     border-radius: 10px;
     border-left: 4px solid #3498db;
-  }
-  
-  .cookie-setting.necessary {
+}
+
+.cookie-setting.necessary {
     border-left-color: #e74c3c;
-  }
-  
-  .cookie-setting.analytics {
+}
+
+.cookie-setting.analytics {
     border-left-color: #2ecc71;
-  }
-  
-  .cookie-setting.marketing {
+}
+
+.cookie-setting.marketing {
     border-left-color: #f39c12;
-  }
-  
-  .setting-header {
+}
+
+.setting-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
-  }
-  
-  .setting-header h3 {
+}
+
+.setting-header h3 {
     color: #2c3e50;
-    font-size: 1.1rem;
-  }
-  
-  .toggle-switch {
+    font-size: 1rem; /* 减小子标题字体 */
+    margin: 0;
+}
+
+/* 开关样式保持不变 */
+.toggle-switch {
     position: relative;
     display: inline-block;
     width: 50px;
     height: 24px;
-  }
-  
-  .toggle-switch input {
+}
+
+.toggle-switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  .toggle-slider {
+}
+
+.toggle-slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -136,9 +148,9 @@
     background-color: #ccc;
     transition: .4s;
     border-radius: 24px;
-  }
-  
-  .toggle-slider:before {
+}
+
+.toggle-slider:before {
     position: absolute;
     content: "";
     height: 16px;
@@ -148,102 +160,107 @@
     background-color: white;
     transition: .4s;
     border-radius: 50%;
-  }
-  
-  input:checked + .toggle-slider {
+}
+
+input:checked + .toggle-slider {
     background-color: #2196F3;
-  }
-  
-  input:checked + .toggle-slider:before {
+}
+
+input:checked + .toggle-slider:before {
     transform: translateX(26px);
-  }
-  
-  input:disabled + .toggle-slider {
+}
+
+input:disabled + .toggle-slider {
     background-color: #95a5a6;
     cursor: not-allowed;
-  }
-  
-  .setting-description {
+}
+
+/* 描述文本优化 */
+.setting-description {
     color: #7f8c8d;
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* 减小描述文字 */
     line-height: 1.5;
-  }
-  
-  /* 操作按钮 */
-  .panel-actions {
+    margin: 0;
+    padding-right: 0.5rem; /* 预留右侧空间 */
+}
+
+/* 操作按钮区域 - 核心优化：根据屏幕尺寸自动调整排列 */
+.panel-actions {
     display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  
-  .cookie-btn {
+    flex-wrap: wrap; /* 允许换行 */
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.cookie-btn {
     flex: 1;
-    padding: 0.8rem 0.5rem;
+    min-width: 120px; /* 确保按钮有最小宽度，避免过窄 */
+    padding: 0.7rem 0.5rem;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 0.9rem; /* 减小按钮文字 */
     transition: all 0.3s ease;
-  }
-  
-  .cookie-btn-accept {
+}
+
+.cookie-btn-accept {
     background: linear-gradient(135deg, #2ecc71, #27ae60);
     color: white;
-  }
-  
-  .cookie-btn-accept:hover {
+}
+
+.cookie-btn-accept:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
-  }
-  
-  .cookie-btn-reject {
+}
+
+.cookie-btn-reject {
     background: #e74c3c;
     color: white;
-  }
-  
-  .cookie-btn-reject:hover {
+}
+
+.cookie-btn-reject:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
-  }
-  
-  .cookie-btn-save {
+}
+
+.cookie-btn-save {
     background: #3498db;
     color: white;
-  }
-  
-  .cookie-btn-save:hover {
+}
+
+.cookie-btn-save:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
-  }
-  
-  /* 响应式设计 */
-  @media (max-width: 768px) {
+}
+
+/* 响应式优化 - 针对小屏幕进一步调整 */
+@media (max-width: 480px) {
     .privacy-panel {
-        width: 350px;
-        left: 50%;
-        transform: translateX(-50%) translateY(20px);
+        padding: 1.2rem 1rem; /* 进一步减小内边距 */
+        bottom: 70px;
     }
     
-    .privacy-panel.active {
-        transform: translateX(-50%) translateY(0);
+    .panel-header {
+        margin-bottom: 1rem;
     }
     
-    .content {
-        padding: 2rem 1.5rem;
+    .cookie-setting {
+        margin-bottom: 1rem;
+        padding: 0.6rem;
+    }
+    
+    .setting-description {
+        font-size: 0.8rem;
     }
     
     .panel-actions {
-        flex-direction: column;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .privacy-panel {
-        width: 90vw;
-        padding: 1.5rem;
+        gap: 0.6rem;
+        margin-top: 1.2rem;
     }
     
-    .header h1 {
-        font-size: 2rem;
+    .cookie-btn {
+        padding: 0.6rem 0.4rem;
+        font-size: 0.85rem;
     }
-  }
+}

@@ -19180,13 +19180,14 @@ blockquote .user-name:before {
 }
 .product-category-img img {
   width: 100%;
+  border: #EDEDED solid 1px;
 }
 .product-category-content {
   text-align: center;
 }
 .product-category-content .title a {
   color: #383838;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
   display: block;
 }
