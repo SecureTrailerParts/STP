@@ -17143,7 +17143,6 @@ img {
 }
 .img-hover-effect {
   position: relative;
-  border:1px #EDEDED solid;
 }
 .img-hover-effect:before {
   background: rgba(255, 255, 255, 0.41);
@@ -19031,6 +19030,7 @@ blockquote .user-name:before {
   overflow: hidden;
   z-index: 1;
   border-end-start-radius: 4px;
+  border: 1px solid gainsboro;
 }
 .product-item-wrap {
   height: 100%;
@@ -19226,6 +19226,7 @@ blockquote .user-name:before {
 }
 .product-list-view .product-list-content {
   width: calc(100% - 350px);
+  padding-left: 20px;
 }
 @media (max-width: 991.98px) {
   .product-list-view .product-list-content {
@@ -19236,6 +19237,15 @@ blockquote .user-name:before {
   display: block;
   font-size: 20px;
   font-weight: 500;
+}
+.product-list-view .product-list-content .price-box .title {
+  color: #5f5f5f;
+  font-weight: 500;
+  font-size: 16px;
+}
+.product-list-view .product-list-content .price-box .content{
+  color: #9f9e9e;
+  font-size: 16px;
 }
 .product-list-view .product-list-content .product-add-action {
   opacity: 1;
@@ -19546,14 +19556,8 @@ blockquote .user-name:before {
   font-weight: 500;
   font-size: 16px;
 }
-.single-product-content .product-category ul li {
-  display: inline-block;
-}
-.single-product-content .product-category ul li a {
+.single-product-content .product-category .content{
   color: #9f9e9e;
-}
-.single-product-content .product-category ul li a:hover {
-  color: #ee3231;
 }
 .single-product-content .social-link ul li:not(:last-child) {
   padding-right: 15px;
@@ -20508,9 +20512,9 @@ blockquote .user-name:before {
   color: #ee3231;
 }
 .product-topbar > ul li.page-count {
-  border: 1px solid #dee2e6;
+  /* border: 1px solid #dee2e6;
   border-radius: 30px;
-  padding: 20px 25px;
+  padding: 20px 25px; */
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .product-topbar > ul li.page-count {
@@ -20771,11 +20775,14 @@ blockquote .user-name:before {
   text-align: center;
 }
 .widgets-category li:not(:last-child) {
-  padding-bottom: 10px;
+  padding-bottom: 30px;
 }
 .widgets-category li a {
   color: #737070;
   display: block;
+}
+.widgets-category li .sign {
+  color: #ee3231;
 }
 .widgets-category li a:hover {
   color: #ee3231;
