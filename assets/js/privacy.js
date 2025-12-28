@@ -145,3 +145,41 @@ document.addEventListener('keydown', (e) => {
         privacyPanel.classList.remove('active');
     }
 });
+
+// 禁用右键菜单
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
+
+// 禁用图片拖拽
+document.addEventListener('dragstart', function (e) {
+    if (e.target.tagName.toLowerCase() === 'img') {
+        e.preventDefault();
+    }
+});
+
+// 禁用图片复制
+document.addEventListener('copy', function (e) {
+    const selection = window.getSelection();
+    if (selection.toString().includes('<img') || e.target.tagName.toLowerCase() === 'img') {
+        e.preventDefault();
+    }
+});
+
+// 禁用F12快捷键
+document.addEventListener('keydown', function (e) {
+    // 禁止F12
+    if (e.key === 'F12') {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    // 额外防护：禁止 Ctrl+Shift+I（Chrome/Firefox打开开发者工具）
+    else if ((e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        // 禁止 Ctrl+U（查看网页源代码）
+        (e.ctrlKey && e.key === 'u') ||
+        // 禁止 Ctrl+S（保存网页，会连带保存图片）
+        (e.ctrlKey && e.key === 's')) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+});
